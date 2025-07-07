@@ -1,0 +1,2 @@
+Installs Android SDK tools and command line tools.
+Required to install Android SDK.

@@ -1,0 +1,8 @@
+{
+  "checks": {
+    "unix": [
+      "command -v java > /dev/null 2>&1",
+      "java -version 2>&1 | grep 'openjdk'"
+    ]
+  }
+}

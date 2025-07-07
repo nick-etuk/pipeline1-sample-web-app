@@ -1,0 +1,6 @@
+{
+  "dependencies": [],
+  "checks": {
+    "unix": ["test -f ~/.nvm/nvm.sh"]
+  }
+}

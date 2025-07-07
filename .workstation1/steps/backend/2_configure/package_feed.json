@@ -1,0 +1,7 @@
+{
+  "dependencies": ["copy_keybase_files"],
+  "checks": {
+    "unix": ["test -f $HOME/.nuget/NuGet/NuGet.Config"],
+    "win": ["wsl -u $WSL_USER -- test -d $HOME/.nuget/NuGet/NuGet.Config"]
+  }
+}

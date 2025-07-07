@@ -1,0 +1,28 @@
+{
+  "id": "web",
+  "sortOrder": 10,
+  "title": "Web development",
+  "repo": "https://github.com/NHSDigital/nhsapp.git",
+  "repoPath": "$REPO_DIR_UNIX/nhsapp/web",
+  "subMenu": "login-env",
+  "steps": [
+    "setup_wsl",
+    "configure_git_client",
+    "install_gpg",
+    "configure_gpg",
+    "enable_signed_commits",
+    "install_vscode",
+    "install_text_editor",
+    "install_node",
+    "add_nvm_to_profile",
+    "activate_node",
+    "install_backend",
+    "configure_backend",
+    "start_docker",
+    "build_backend backendworker",
+    "build_backend web",
+    "start_service backendworker",
+    "start_service http_server",
+    "open_vscode"
+  ]
+}

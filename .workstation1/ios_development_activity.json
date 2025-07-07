@@ -1,0 +1,25 @@
+{
+  "id": "ios",
+  "sortOrder": 40,
+  "title": "IOS development",
+  "os": ["macos"],
+  "repo": "https://github.com/NHSDigital/nhsapp-ios.git",
+  "repoPath": "$REPO_DIR_UNIX/nhsapp-ios",
+  "steps": [
+    "setup_wsl",
+    "configure_git_client",
+    "install_gpg",
+    "configure_gpg",
+    "enable_signed_commits",
+    "install_xcode",
+    "install_emulator ios",
+    "install_text_editor",
+    "install_backend",
+    "configure_backend",
+    "start_docker",
+    "build_backend backendworker",
+    "start_service backendworker ext",
+    "start_emulator ios",
+    "open_xcode"
+  ]
+}

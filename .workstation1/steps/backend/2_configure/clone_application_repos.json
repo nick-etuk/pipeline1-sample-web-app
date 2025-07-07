@@ -1,0 +1,5 @@
+{
+  "checks": {
+    "unix": ["test -d $REPO_DIR_UNIX", "test -d $REPO_DIR_UNIX/nhsapp"]
+  }
+}

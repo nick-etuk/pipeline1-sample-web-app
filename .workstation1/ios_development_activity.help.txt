@@ -1,0 +1,42 @@
+To run the NHS App in a local IOS simulator,
+in the nhsapp-ios repo, create a new branch and then
+make the changes below to the IOS application:
+
+1. In the files below, append ":3000" after "web.host"
+    - NHSLoginQueryGenerator (web.host not found)
+    - ApiRequestHandler (web.host not found)
+    - Logout-ViewModel (done)
+    - HomeView (web.host not found)
+    - CreateSessionView
+    - CreateSession-ViewModel
+
+2. In the file NHSOnline/Data/Environments/App/Local.xcconfig, change PRODUCT_MODULE_NAME_NOTIFICATION to com.nhs.online.staging.stagingserviceextension.
+
+3. In the file ApiCookie, change secure to false as shown below.
+        return ApiCookie(uri: url,
+            name: "nhso.session",
+            value: cookieData.convertToUrlEncodedString(),
+            domain: hostStr,
+            path: "/",
+            secure: false,
+            sameSite: HTTPCookieStringPolicy.sameSiteLax)
+
+  
+4. In NHSOnline-Info.plist, add NSAllowArbitaryLoads = true under NSAppTransportSecurity as shown below.
+        <key>NSAppTransportSecurity</key>
+        <dict>
+            <key>NSAllowArbitaryLoads</key>
+            <true/>
+        </dict>
+
+ 
+5. In NHSOnline -> Signing & Capabilities -> Signing, change team & bundle identifier as below
+        Team –  NHS Digital
+        Bundle Identifier - com.nhs.online.native.staging
+
+6. In NotificationService -> Signing & Capabilities -> Signing. Change team & bundle identifier as below
+        Team – NHS Digital
+        Bundle Identifier - com.nhs.online.native.staging.stagingextensions
+
+7. Start the nhsapp backend
+8. Run the native app by selecting appropriate iPhone simulator and NHS Online Local as a configuration.

@@ -1,0 +1,11 @@
+{
+  "runOnce": true,
+  "dependencies": ["install_backend"],
+  "steps": [
+    "clone_application_repos",
+    "get_personal_access_token",
+    "copy_keybase_files",
+    "package_feed",
+    "start_docker"
+  ]
+}
