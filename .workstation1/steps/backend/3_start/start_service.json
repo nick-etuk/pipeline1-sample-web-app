@@ -1,0 +1,10 @@
+{
+  "dependencies": ["build_backend"],
+  "parallel": true,
+  "timeout": 300,
+  "checks": {
+    "debug": true,
+    "unix": ["check_service ${args[@]+\"${args[@]}\"}"]
+  },
+  "options": [{ "key": "LOGINENV", "value": "sandpit" }]
+}

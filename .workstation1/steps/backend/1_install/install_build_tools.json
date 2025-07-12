@@ -1,0 +1,7 @@
+{
+  "dependencies": [],
+  "checks": {
+    "unix": ["command -v make | grep -iq make"],
+    "win": ["wsl -u $WSL_USER command -v make"]
+  }
+}

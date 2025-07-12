@@ -1,0 +1,6 @@
+{
+  "checks": {
+    "unix": ["test -s \"$WORKING_DIR/.pat\""],
+    "win": ["Test-Path -PathType Leaf $WORKING_DIR/.pat"]
+  }
+}

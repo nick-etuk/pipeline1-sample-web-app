@@ -1,0 +1,24 @@
+{
+  "id": "and",
+  "sortOrder": 30,
+  "title": "Android development",
+  "repo": "https://github.com/NHSDigital/nhsapp.git/nhsapp-android",
+  "repoPath": "$REPO_DIR/nhsapp-android",
+  "steps": [
+    "setup_wsl",
+    "configure_git_client",
+    "install_gpg",
+    "configure_gpg",
+    "enable_signed_commits",
+    "install_text_editor",
+    "install_backend",
+    "install_android_studio",
+    "install_emulator android",
+    "configure_backend",
+    "start_docker",
+    "build_backend backendworker",
+    "start_service backendworker ext",
+    "start_emulator android",
+    "open_android_studio"
+  ]
+}

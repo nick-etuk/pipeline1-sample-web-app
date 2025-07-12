@@ -1,0 +1,8 @@
+{
+  "dependencies": [],
+  "isElevated": true,
+  "checks": {
+    "macos": ["command -v az | grep -iq /usr/local/bin/az"],
+    "ubuntu": ["command -v az | grep -iq /usr/bin/az"]
+  }
+}
