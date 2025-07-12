@@ -16,8 +16,8 @@ clone_application_repos() {
     git config --global branch.sort -committerdate
     git config --global column.ui auto
 
-    mkdir -p "$REPO_DIR_UNIX"
-    switch_to "$REPO_DIR_UNIX"
+    mkdir -p "$REPO_DIR"
+    switch_to "$REPO_DIR"
     git clone https://nhsapp@dev.azure.com/nhsapp/NHS%20App/_git/nhsapp
     git clone https://nhsapp@dev.azure.com/nhsapp/NHS%20App/_git/nhsapp-vue-component-library
     git clone https://nhsapp@dev.azure.com/nhsapp/NHS%20App/_git/nhsapp-android

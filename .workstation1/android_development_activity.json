@@ -3,7 +3,7 @@
   "sortOrder": 30,
   "title": "Android development",
   "repo": "https://github.com/NHSDigital/nhsapp.git/nhsapp-android",
-  "repoPath": "$REPO_DIR_UNIX/nhsapp-android",
+  "repoPath": "$REPO_DIR/nhsapp-android",
   "steps": [
     "setup_wsl",
     "configure_git_client",

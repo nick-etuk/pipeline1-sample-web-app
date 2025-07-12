@@ -35,7 +35,7 @@ start_service() {
     fi
     debug "login_env: $login_env"
 
-    switch_to "$REPO_DIR_UNIX/nhsapp"
+    switch_to "$REPO_DIR/nhsapp"
     if [ "$service" != 'http_server' ]; then
         if [ "$MY_OS" = 'ubuntu' ];then
             az acr login -n nhsapp >/dev/null 2>&1
@@ -68,17 +68,17 @@ start_service() {
             # ;;
         bdd)
             debug "=>start_service: bdd"
-            switch_to "$REPO_DIR_UNIX/nhsapp/web"
+            switch_to "$REPO_DIR/nhsapp/web"
             npm install
-            switch_to "$REPO_DIR_UNIX/nhsapp"
+            switch_to "$REPO_DIR/nhsapp"
             make run-localbdd
             ;;
         http_server)
             # This always installs 200 plus packages.
             # Restore the lines below when this is fixed.
-            # switch_to "$REPO_DIR_UNIX/nhsapp/web/lint"
+            # switch_to "$REPO_DIR/nhsapp/web/lint"
             # npm install
-            switch_to "$REPO_DIR_UNIX/nhsapp/web"
+            switch_to "$REPO_DIR/nhsapp/web"
             npm install
             npm run docker-dev
             ;;

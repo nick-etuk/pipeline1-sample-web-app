@@ -3,7 +3,7 @@
   "sortOrder": 10,
   "title": "Web development",
   "repo": "https://github.com/NHSDigital/nhsapp.git",
-  "repoPath": "$REPO_DIR_UNIX/nhsapp/web",
+  "repoPath": "$REPO_DIR/nhsapp/web",
   "subMenu": "login-env",
   "steps": [
     "setup_wsl",

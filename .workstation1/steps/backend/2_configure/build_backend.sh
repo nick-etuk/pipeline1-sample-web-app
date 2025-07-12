@@ -5,16 +5,16 @@ switch_to_backend_directory() {
     service=$1
     case $service in
         android)
-            switch_to "$REPO_DIR_UNIX/nhsapp-android"
+            switch_to "$REPO_DIR/nhsapp-android"
             ;;
         ios)
-            switch_to "$REPO_DIR_UNIX/nhsapp-ios"
+            switch_to "$REPO_DIR/nhsapp-ios"
             ;;
         web)
-            switch_to "$REPO_DIR_UNIX/nhsapp/web"
+            switch_to "$REPO_DIR/nhsapp/web"
             ;;
         *)
-            switch_to "$REPO_DIR_UNIX/nhsapp"
+            switch_to "$REPO_DIR/nhsapp"
         ;;
     esac
 }
@@ -35,7 +35,7 @@ build_backend() {
         web)
             npm install
             npm install -g auditjs
-            switch_to "$REPO_DIR_UNIX/nhsapp/web/lint"
+            switch_to "$REPO_DIR/nhsapp/web/lint"
             npm install
             ;;
         xamarinintegrationtests)

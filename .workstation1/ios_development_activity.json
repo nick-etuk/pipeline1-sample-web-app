@@ -4,7 +4,7 @@
   "title": "IOS development",
   "os": ["macos"],
   "repo": "https://github.com/NHSDigital/nhsapp-ios.git",
-  "repoPath": "$REPO_DIR_UNIX/nhsapp-ios",
+  "repoPath": "$REPO_DIR/nhsapp-ios",
   "steps": [
     "setup_wsl",
     "configure_git_client",

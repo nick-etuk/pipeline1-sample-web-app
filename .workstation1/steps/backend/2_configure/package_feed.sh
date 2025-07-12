@@ -7,7 +7,7 @@ package_feed() {
   local email
   local pat
   
-  buildscripts_dir="$REPO_DIR_UNIX"/nhsapp/buildscripts
+  buildscripts_dir="$REPO_DIR"/nhsapp/buildscripts
   bad_filename="$buildscripts_dir"/package_feeds/Nuget.config
   good_filename="$buildscripts_dir"/package_feeds/NuGet.Config
 
