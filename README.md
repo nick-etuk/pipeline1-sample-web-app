@@ -1,2 +1,3 @@
-# workstation1-sample-web-app
-Workstation configuration scripts for a JavaScript web app with a backend in docker containers.
+# workstation1-template-web-app
+
+Workstation configuration scripts for a web app with a backend in docker containers.
