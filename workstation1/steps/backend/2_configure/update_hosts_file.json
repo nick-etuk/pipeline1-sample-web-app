@@ -1,0 +1,7 @@
+{
+  "runOnce": true,
+  "isElevated": true,
+  "checks": {
+    "unix": ["grep -iq 'web.local.bitraft.io' /etc/hosts"]
+  }
+}

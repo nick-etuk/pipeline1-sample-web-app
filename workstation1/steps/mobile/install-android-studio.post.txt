@@ -1,0 +1,7 @@
+In Android Studio, set the JDK path to the Java home of Java 17:
+
+Merge the branch feature/nhso-1111-local-branch into your current branch:
+git merge origin/feature/nhso-1111-local-branch
+
+Add Windows Defender exclusions for Android development:
+

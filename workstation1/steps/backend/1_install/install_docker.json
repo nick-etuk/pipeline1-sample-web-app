@@ -1,0 +1,6 @@
+{
+  "isElevated": true,
+  "checks": {
+    "unix": ["command -v docker"]
+  }
+}

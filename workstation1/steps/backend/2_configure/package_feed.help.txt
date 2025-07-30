@@ -1,0 +1,11 @@
+This step creates the following files:
+    $HOME/.nuget/NuGet/NuGet.Config
+    $HOME/.npmrc
+    $HOME/.m2/settings.xml
+
+NuGet.Config lets the backend build process connect to the NHS App Nuget feed.
+.npmrc lets you connect to the nhsapp NPM repository.
+settings.xml lets you connect to the nhsapp maven server.
+
+The step calls the NHS App script configure_package_feed.sh, 
+which base64 encodes your Personal Access token and inserts it into each of these files.

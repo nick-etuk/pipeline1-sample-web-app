@@ -1,0 +1,9 @@
+{
+  "dependencies": ["install_node"],
+  "checks": {
+    "unix": [
+      "test ! -f ~/.bashrc || grep -q 'nvm.sh' ~/.bashrc",
+      "test ! -f ~/.zshrc || grep -q 'nvm.sh' ~/.zshrc"
+    ]
+  }
+}

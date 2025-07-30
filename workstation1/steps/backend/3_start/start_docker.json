@@ -1,0 +1,6 @@
+{
+  "dependencies": ["install_docker", "configure_backend"],
+  "checks": {
+    "unix": ["docker stats --no-stream | grep -iq CONTAINER"]
+  }
+}

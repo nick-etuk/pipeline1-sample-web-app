@@ -1,0 +1,22 @@
+{
+  "id": "dot",
+  "sortOrder": 20,
+  "title": "Dotnet development",
+  "repo": "https://github.com/NHSDigital/nhsapp.git",
+  "repoPath": "$REPO_DIR/nhsapp/backendworker",
+  "steps": [
+    "setup_wsl",
+    "configure_git_client",
+    "install_gpg",
+    "configure_gpg",
+    "enable_signed_commits",
+    "install_backend",
+    "install_dotnet",
+    "install_rider",
+    "start_docker",
+    "configure_backend",
+    "build_backend backendworker",
+    "start_service backendworker",
+    "open_rider"
+  ]
+}
