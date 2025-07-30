@@ -1,2 +1,0 @@
-Installing node.js via NVM sometimes fails.
-If that happends, node will be installed directly, without NVM.

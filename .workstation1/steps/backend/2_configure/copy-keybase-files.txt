@@ -1,6 +1,0 @@
-You should have a Keybase drive mounted in your file system,
-and a folder in it called team\nhsonline\development_secrets.
-The script will attempt to do this for you, but if you have problems,
-1. Start the keybase application
-2. Login 
-3. Click on Files, Explorer Integration

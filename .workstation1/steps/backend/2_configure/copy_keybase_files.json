@@ -1,7 +1,0 @@
-{
-  "dependencies": ["install_keybase"],
-  "checks": {
-    "unix": ["test -d $HOME/.nhsonline"],
-    "win": ["wsl -u $WSL_USER -- test -d $HOME/.nhsonline"]
-  }
-}

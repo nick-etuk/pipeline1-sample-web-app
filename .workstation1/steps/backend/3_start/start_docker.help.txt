@@ -1,2 +1,0 @@
-On macos, if colima fails to start, try deleting the colima networks directory
-with the following command: rm -rf "$HOME/.colima/_lima/_networks"

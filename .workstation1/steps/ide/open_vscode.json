@@ -1,5 +1,0 @@
-{
-  "checks": {
-    "unix": ["check_ide vscode"]
-  }
-}

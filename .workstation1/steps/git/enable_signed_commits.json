@@ -1,6 +1,0 @@
-{
-  "dependencies": ["configure_gpg"],
-  "checks": {
-    "unix": ["git config --global --list | grep -q user.signingkey"]
-  }
-}

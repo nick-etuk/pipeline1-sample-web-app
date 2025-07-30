@@ -1,4 +1,0 @@
-{
-  "runOnce": true,
-  "steps": ["install_docker", "install_azure_cli", "install_keybase"]
-}

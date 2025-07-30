@@ -1,6 +1,0 @@
-{
-  "isElevated": true,
-  "checks": {
-    "unix": ["command -v dotnet"]
-  }
-}

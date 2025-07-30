@@ -1,1 +1,0 @@
-Uses the Android command linke tools to install Android SDK.

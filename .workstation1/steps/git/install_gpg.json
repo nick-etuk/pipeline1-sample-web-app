@@ -1,5 +1,0 @@
-{
-  "checks": {
-    "unix": ["command -v gpg"]
-  }
-}

@@ -1,6 +1,0 @@
-{
-  "dependencies": ["install_gpg"],
-  "checks": {
-    "unix": [" test -d $HOME/.gnupg", "test -f $HOME/.gnupg/gpg-agent.conf"]
-  }
-}

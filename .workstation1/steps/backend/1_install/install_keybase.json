@@ -1,7 +1,0 @@
-{
-  "dependencies": [],
-  "checks": {
-    "macos": ["command -v keybase | grep -q keybase"],
-    "ubuntu": ["true"]
-  }
-}

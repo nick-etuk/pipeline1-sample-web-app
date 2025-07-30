@@ -1,8 +1,0 @@
-{
-  "dependencies": ["start_docker"],
-  "checks": {
-    "win": ["az acr login -n nhsapp"],
-    "ubuntu": ["true"],
-    "macos": ["az acr login -n nhsapp >/dev/null 2>&1"]
-  }
-}
