@@ -24,3 +24,4 @@ clone_application_repos() {
     git clone https://nhsapp@dev.azure.com/nhsapp/NHS%20App/_git/nhsapp-ios
     git clone https://nhsapp@dev.azure.com/nhsapp/NHS%20App/_git/nhsapp-utilities-api-adapter
 }
+clone_application_repos
