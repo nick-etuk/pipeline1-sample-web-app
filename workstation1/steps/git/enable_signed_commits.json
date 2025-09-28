@@ -1,6 +1,6 @@
 {
-  "dependencies": ["configure_gpg"],
   "checks": {
     "unix": ["git config --global --list | grep -q user.signingkey"]
-  }
+  },
+  "steps": ["install_gpg", "configure_gpg_agent"]
 }

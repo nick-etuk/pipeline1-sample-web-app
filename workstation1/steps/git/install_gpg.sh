@@ -19,7 +19,9 @@ update_profile() {
         return
     fi
 
-    echo -e '\nexport GPG_TTY=$(tty)' >> "$profile"
+    # echo -e '\nexport GPG_TTY=$(tty)' >> "$profile"
+    # shellcheck disable=SC2059
+    printf "\nexport GPG_TTY=$(tty)\n" >> "$profile"
 }
 
 install_gpg_"$MY_OS"
