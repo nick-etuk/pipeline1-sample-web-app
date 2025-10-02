@@ -8,8 +8,12 @@ cleanbuild() {
     docker system prune -f 
 
     info 'Installing npm packages...'
-    switch_to "$REPO_DIR/nhsapp/web" && npm install && npm install -g auditjs
-    switch_to "$REPO_DIR/nhsapp/web/lint" && npm install
+    switch_to "$REPO_DIR/nhsapp/web"
+    rm -rf node_modules
+    npm install && npm install -g auditjs
+    switch_to "$REPO_DIR/nhsapp/web/lint"
+    rm -rf node_modules
+    npm install
     
     info 'Building docker images...'
     switch_to "$REPO_DIR/nhsapp" && make clean && make login && make build
