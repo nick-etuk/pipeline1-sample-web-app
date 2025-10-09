@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-configure_gpg() {
+configure_gpg_agent() {
     local current_timestamp
     local gpg_dir
     local gpg_agent_config
@@ -26,4 +26,4 @@ configure_gpg() {
     
     gpg-connect-agent reloadagent /bye
 }
-configure_gpg
+configure_gpg_agent

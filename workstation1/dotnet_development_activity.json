@@ -7,9 +7,6 @@
   "steps": [
     "setup_wsl",
     "configure_git_client",
-    "install_gpg",
-    "configure_gpg",
-    "enable_signed_commits",
     "install_backend",
     "install_dotnet",
     "install_rider",
