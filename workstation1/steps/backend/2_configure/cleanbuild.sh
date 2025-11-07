@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
+# shellcheck disable=SC2012
 
 cleanbuild() {
     local node_modules
     local node_module
     local choice
+    local owner
 
     if [ -n "$(docker ps -a -q)" ]; then
         info 'Stopping and removing docker containers...'
@@ -40,7 +42,8 @@ cleanbuild() {
     node_modules=$(find . -name 'node_modules' -type d -prune)
     for node_module in $node_modules; do
         if [ -d "$node_module" ]; then
-            if [ "$(stat -c '%U' "$node_module")" = "root" ]; then
+            owner=$(ls -ld "$node_module" | awk '{print $3}')
+            if [ "$owner" = "root" ]; then
                 sudo rm -rf "$node_module"
             else
                 rm -rf "$node_module"

@@ -98,7 +98,7 @@ start_service() {
 
             switch_to "$REPO_DIR/nhsapp/web"
             npm install
-            npm i --no-save --prefix ./node_modules/express path-to-regexp@0.1.7 #todo: remove this when develop is fixed
+            # npm i --no-save --prefix ./node_modules/express path-to-regexp@0.1.7 #todo: remove this when develop is fixed
             # docker kill $(docker ps -q --filter 'publish=8089')
             stale_nginx_container=$(docker ps -q --filter 'publish=8089')
             if [ -n "$stale_nginx_container" ]; then
@@ -111,7 +111,7 @@ start_service() {
             make -C xamarinintegrationtests run-local
             ;;
         *)
-            error "unknown service $service"
+            error "unknown service>$service<"
             ;;
 
     esac
