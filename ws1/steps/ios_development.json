@@ -1,5 +1,6 @@
 {
-  "id": "ios",
+  "menu": "main",
+  "shortName": "ios",
   "sortOrder": 40,
   "title": "IOS development",
   "os": ["macos"],

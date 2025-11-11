@@ -1,7 +1,8 @@
 {
-  "id": "dot",
+  "menu": "main",
   "sortOrder": 20,
   "title": "Dotnet development",
+  "shortName": "dot",
   "repo": "https://github.com/NHSDigital/nhsapp.git",
   "repoPath": "$REPO_DIR/nhsapp/backendworker",
   "steps": [

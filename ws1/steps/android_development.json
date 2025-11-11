@@ -1,7 +1,8 @@
 {
-  "id": "and",
+  "menu": "main",
   "sortOrder": 30,
   "title": "Android development",
+  "shortName": "and",
   "repo": "https://github.com/NHSDigital/nhsapp.git/nhsapp-android",
   "repoPath": "$REPO_DIR/nhsapp-android",
   "steps": [

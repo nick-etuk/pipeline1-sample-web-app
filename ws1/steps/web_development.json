@@ -1,10 +1,10 @@
 {
-  "id": "web",
+  "menu": "main",
   "sortOrder": 10,
   "title": "Web development",
+  "shortName": "web",
   "repo": "https://github.com/NHSDigital/nhsapp.git",
   "repoPath": "$REPO_DIR/nhsapp/web",
-  "subMenu": "login-env",
   "steps": [
     "setup_wsl",
     "configure_git_client",
