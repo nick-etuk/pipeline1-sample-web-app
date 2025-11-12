@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 # shellcheck disable=SC2016
 
-# debug '*** running install_node.sh ***'
-# return 0
+debug 'check failed: test -f ~/.nvm/nvm.sh'
+debug '*** running install_node.sh ***'
+return 0
 
 add_nvm_to_profile() {
     local profile
@@ -21,8 +22,9 @@ add_nvm_to_profile() {
 
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/$(curl -s https://api.github.com/repos/nvm-sh/nvm/releases/latest | grep 'tag_name' | cut -d\" -f4)/install.sh | bash
 
-add_nvm_to_profile "$HOME/.bashrc"
-add_nvm_to_profile "$HOME/.zshrc"
+# no longer needed. Done by edit_login_profile.sh
+# add_nvm_to_profile "$HOME/.bashrc"
+# add_nvm_to_profile "$HOME/.zshrc"
 
 export NVM_DIR="$HOME/.nvm"
 if [ -s "$NVM_DIR/nvm.sh" ]; then
