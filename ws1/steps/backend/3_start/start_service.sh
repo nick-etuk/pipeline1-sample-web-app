@@ -5,6 +5,8 @@ start_service() {
     local service
     local login_env
     local stale_nginx_container
+    local node_major_ver
+
     # local args
     # local service_args
 
@@ -28,12 +30,14 @@ start_service() {
     service=$1
     debug "Starting service: $service"
 
-    login_env=$(get_config 'login_env')
-    if [ -z "$login_env" ]; then
-        warn "login_env not set, defaulting to 'ext'"
-        login_env='ext'
+    if  [ "$service" != 'http_server' ]; then
+        login_env=$(get_config 'login_env')
+        if [ -z "$login_env" ]; then
+            warn "login_env not set, defaulting to 'ext'"
+            login_env='ext'
+        fi
+        debug "login_env: $login_env"
     fi
-    debug "login_env: $login_env"
 
     switch_to "$REPO_DIR/nhsapp"
     if [ "$service" != 'http_server' ]; then
@@ -42,13 +46,6 @@ start_service() {
         else
             make login
         fi
-    fi
-
-    # docker kill $(docker ps -q --filter 'publish=8089')
-    stale_nginx_container=$(docker ps -q --filter 'publish=8089')
-    if [ -n "$stale_nginx_container" ]; then
-        warn "Killing stale nginx container on port 8089: $stale_nginx_container"
-        docker kill "$stale_nginx_container"
     fi
     
     case $service in
@@ -74,19 +71,47 @@ start_service() {
             make run-localbdd
             ;;
         http_server)
-            # This always installs 200 plus packages.
-            # Restore the lines below when this is fixed.
             # switch_to "$REPO_DIR/nhsapp/web/lint"
             # npm install
+            # This always installs 200 plus packages.
+            # Restore the lines above when you have fixed that.
+            
+            debug "Node version: $(node -v)"
+            node_major_ver=$(node -v | cut -d. -f1 | tr -d v)
+            if [ "$node_major_ver" -lt "$NODE_MAJOR_VERSION" ]; then
+                warn "Node version $NODE_MAJOR_VERSION or higher is required. Current version is $(node -v)"
+                warn "Attempting to switch to Node version $NODE_MAJOR_VERSION using nvm"
+                export NVM_DIR="$HOME"/.nvm
+                debug "NVM_DIR: $NVM_DIR"
+                if [ -s "$NVM_DIR"/nvm.sh ]; then
+                    source "$NVM_DIR"/nvm.sh
+                    nvm use "$NODE_MAJOR_VERSION"
+                    debug "New Node version: $(node -v)"
+                else
+                    error "nvm.sh not found in $NVM_DIR"
+                fi
+                node_major_ver=$(node -v | cut -d. -f1 | tr -d v)
+                if [ "$node_major_ver" -lt "$NODE_MAJOR_VERSION" ]; then
+                    error "Could not switch to Node $NODE_MAJOR_VERSION"
+                fi
+            fi
+
             switch_to "$REPO_DIR/nhsapp/web"
             npm install
+            # npm i --no-save --prefix ./node_modules/express path-to-regexp@0.1.7 #todo: remove this when develop is fixed
+            # docker kill $(docker ps -q --filter 'publish=8089')
+            stale_nginx_container=$(docker ps -q --filter 'publish=8089')
+            if [ -n "$stale_nginx_container" ]; then
+                warn "Killing stale nginx container on port 8089: $stale_nginx_container"
+                docker kill "$stale_nginx_container"
+            fi
             npm run docker-dev
             ;;
         xamarinintegrationtests)
             make -C xamarinintegrationtests run-local
             ;;
         *)
-            error "unknown service $service"
+            error "unknown service>$service<"
             ;;
 
     esac

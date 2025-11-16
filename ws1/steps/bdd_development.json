@@ -1,15 +1,13 @@
 {
-  "id": "bdd",
+  "menu": "main",
   "sortOrder": 50,
   "title": "BDD development",
+  "shortName": "bdd",
   "repo": "https://github.com/NHSDigital/nhsapp.git",
   "repoPath": "$REPO_DIR/nhsapp/bddtests",
   "steps": [
     "setup_wsl",
     "configure_git_client",
-    "install_gpg",
-    "configure_gpg",
-    "enable_signed_commits",
     "install_backend",
     "install_intellij",
     "install_text_editor",

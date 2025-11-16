@@ -1,6 +1,6 @@
 {
-  "dependencies": ["build_backend"],
-  "parallel": true,
+  "dependencies": ["build_backendworker"],
+  "newTab": true,
   "timeout": 300,
   "checks": {
     "debug": true,

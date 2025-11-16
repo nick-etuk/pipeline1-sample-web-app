@@ -1,5 +1,6 @@
 {
-  "id": "ios",
+  "menu": "main",
+  "shortName": "ios",
   "sortOrder": 40,
   "title": "IOS development",
   "os": ["macos"],
@@ -8,9 +9,6 @@
   "steps": [
     "setup_wsl",
     "configure_git_client",
-    "install_gpg",
-    "configure_gpg",
-    "enable_signed_commits",
     "install_xcode",
     "install_emulator ios",
     "install_text_editor",

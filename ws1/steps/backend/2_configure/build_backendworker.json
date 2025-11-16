@@ -1,0 +1,30 @@
+{
+  "runOnce": true,
+  "dependencies": [
+    "configure_backend",
+    "install_build_tools",
+    "copy_keybase_files",
+    "get_personal_access_token",
+    "install_docker",
+    "install_azure_cli",
+    "start_docker"
+  ],
+  "checks": {
+    "dockerImages": [
+      "nhsonline-web",
+      "nhsonline-web-build",
+      "nhsonline-web-init",
+      "nhsonline-web-lint",
+      "nhsonline-web-build-dependencies",
+      "nhsonline-web-production-dependencies",
+      "nhsonline-dotnetcore-build",
+      "nhsonline-nodejs-build",
+      "nhsonline-aspdotnetcore-runtime",
+      "nginx-unprivileged",
+      "nhsonline-service-journey-dev-config",
+      "nhsonline-backendservicejourneyrulesapi",
+      "nhsonline-backendcidapi",
+      "nhsonline-backendpfsapi"
+    ]
+  }
+}
