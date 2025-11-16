@@ -1,5 +1,5 @@
 {
-  "dependencies": ["build_backend"],
+  "dependencies": ["build_backendworker"],
   "newTab": true,
   "timeout": 300,
   "checks": {

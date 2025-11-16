@@ -1,0 +1,16 @@
+{
+  "dependencies": ["build_backendworker"],
+  "newTab": true,
+  "timeout": 300,
+  "checks": {
+    "dockerContainers": [
+      "api.local.bitraft.io",
+      "cid.local.bitraft.io",
+      "mongodb.bitraft.io",
+      "pfs.local.bitraft.io",
+      "servicejourneyrulesapi.local.bitraft.io",
+      "silver.local.bitraft.io",
+      "web.local.bitraft.io"
+    ]
+  }
+}
