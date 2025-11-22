@@ -7,9 +7,15 @@ function start_docker_macos {
     if [ $ret_code -ne 0 ]; then
         echo -e "${YELLOW}Starting colima... ${NC}"
         if ! colima start; then
-            echo -e "${YELLOW}Failed to start colima. Deleting colima networks directory${NC}"
-            rm -rf "$HOME/.colima/_lima/_networks"
-            if ! colima restart; then
+            echo -e "${YELLOW}Failed to start colima. Trying again after force stop...${NC}"
+            colima stop --force
+
+            if ! colima start; then
+                echo -e "${YELLOW}Deleting colima networks directory then trying again...${NC}"
+                rm -rf "$HOME/.colima/_lima/_networks"
+            fi
+            
+            if ! colima start; then
                 echo -e "${RED}Failed to start colima. Exiting...${NC}"
                 return 1
             fi

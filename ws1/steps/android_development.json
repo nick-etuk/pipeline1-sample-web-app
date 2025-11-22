@@ -1,10 +1,10 @@
 {
+  "id": "and",
   "menu": "main",
   "sortOrder": 30,
   "title": "Android development",
-  "shortName": "and",
-  "repo": "https://github.com/NHSDigital/nhsapp.git/nhsapp-android",
-  "repoPath": "$REPO_DIR/nhsapp-android",
+  "repo": "https://github.com/NHSDigital/nhsapp-android.git",
+  "exitTo": "../nhsapp-android",
   "steps": [
     "setup_wsl",
     "configure_git_client",
@@ -14,8 +14,8 @@
     "install_emulator android",
     "configure_backend",
     "start_docker",
-    "build_backend backendworker",
-    "start_service backendworker ext",
+    "build_backendworker",
+    "start_backendworker ext",
     "start_emulator android",
     "open_android_studio"
   ]
