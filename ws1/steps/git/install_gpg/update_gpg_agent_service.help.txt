@@ -1,0 +1,55 @@
+-------------------------
+Update Gpg-Agent Service
+-------------------------
+
+The systemd service for the gpg-agent has a hardcoded path to the old GnuPG binaries.
+After upgrading gpg, you need to update systemd by running the following command:
+
+$ systemctl --user edit gpg-agent
+
+This will bring up your $EDITOR with the buffer containing a template to override the unit definition. Save it with the following content:
+
+### Editing /home/<username>/.config/systemd/user/gpg-agent.service.d/override.conf
+### Anything between here and the comment below will become the new contents of the file
+
+[Service]
+ExecStart=
+ExecStart=/usr/local/bin/gpg-agent --supervised
+ExecReload=
+ExecReload=/usr/local/bin/gpgconf --reload gpg-agent
+
+### Lines below this comment will be discarded
+
+### /usr/lib/systemd/user/gpg-agent.service
+# [Unit]
+# Description=GnuPG cryptographic agent and passphrase cache
+# Documentation=man:gpg-agent(1)
+# Requires=gpg-agent.socket
+#
+# [Service]
+# ExecStart=/usr/bin/gpg-agent --supervised
+# ExecReload=/usr/bin/gpgconf --reload gpg-agent
+
+Then restart the service by running the following command:
+
+$ systemctl --user restart gpg-agent
+
+The new version of the agent should now be running, as shown below:
+
+$ systemctl --user status gpg-agent
+● gpg-agent.service - GnuPG cryptographic agent and passphrase cache
+     Loaded: loaded (/usr/lib/systemd/user/gpg-agent.service; static)
+    Drop-In: /home/justin/.config/systemd/user/gpg-agent.service.d
+             └─override.conf
+     Active: active (running) since Fri 2023-02-24 01:31:18 UTC; 2s ago
+TriggeredBy: ● gpg-agent-extra.socket
+             ● gpg-agent.socket
+             ● gpg-agent-ssh.socket
+             ● gpg-agent-browser.socket
+       Docs: man:gpg-agent(1)
+   Main PID: 463117 (gpg-agent)
+      Tasks: 1 (limit: 458)
+     Memory: 328.0K
+        CPU: 3ms
+     CGroup: /user.slice/user-1001.slice/user@1001.service/app.slice/gpg-agent.service
+             └─463117 /usr/local/bin/gpg-agent --supervised

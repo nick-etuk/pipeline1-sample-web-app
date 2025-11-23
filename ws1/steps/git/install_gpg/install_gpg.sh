@@ -14,9 +14,14 @@ install_gpg_ubuntu() {
 
     echo "Compiling gnupg. Working in temporary directory $tmp_dir"
     
-    compile_source_libgpg_error "$tmp_dir"
-    compile_source_libksba "$tmp_dir"
-    compile_source_gpg_v3 "$tmp_dir"
+    compile_source_libgpg_error "$tmp_dir" || return 1
+    compile_source_libksba "$tmp_dir" || return 1
+    compile_source_gpg_v3 "$tmp_dir" || return 1
+
+    sudo ln -s /usr/bin/pinentry /usr/local/bin/pinentry
+
+    script_path=$(realpath "$0")
+    more "$script_path/steps/git/install_gpg/update_gpg_agent_service.help.txt"
 }
 
 update_profile() {
