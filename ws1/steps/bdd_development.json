@@ -1,10 +1,9 @@
 {
+  "id": "bdd",
   "menu": "main",
   "sortOrder": 50,
   "title": "BDD development",
-  "shortName": "bdd",
-  "repo": "https://github.com/NHSDigital/nhsapp.git",
-  "repoPath": "$REPO_DIR/nhsapp/bddtests",
+  "exitTo": "bddtests",
   "steps": [
     "setup_wsl",
     "configure_git_client",
@@ -13,9 +12,9 @@
     "install_text_editor",
     "configure_backend",
     "start_docker",
-    "build_backend bdd",
-    "build_backend web",
-    "start_service bdd",
+    "build_bdd",
+    "build_web",
+    "start_bdd",
     "open_intellij"
   ]
 }
