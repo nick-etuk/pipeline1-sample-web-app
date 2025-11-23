@@ -6,7 +6,17 @@ install_gpg_macos() {
 }
 
 install_gpg_ubuntu() {
-    sudo apt-get install -y gnupg
+    local tmp_dir
+    sudo apt-get install -y build-essential bzip2 libassuan-dev libgcrypt20-dev libgpg-error-dev libksba-dev libnpth0-dev
+    
+    tmp_dir=$(mktemp -d)
+    cd "$tmp_dir" || exit 1
+
+    echo "Compiling gnupg. Working in temporary directory $tmp_dir"
+    
+    compile_source_libgpg_error "$tmp_dir"
+    compile_source_libksba "$tmp_dir"
+    compile_source_gpg_v3 "$tmp_dir"
 }
 
 update_profile() {
