@@ -1,5 +1,5 @@
 {
-  "dependencies": ["build_backendworker"],
+  "dependencies": ["build_backendworker", "start_docker"],
   "newTab": true,
   "timeout": 300,
   "checks": {
