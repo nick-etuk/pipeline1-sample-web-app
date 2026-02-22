@@ -30,6 +30,7 @@ EOF
 
     signing_key=$(gpg --list-secret-keys --keyid-format=long | grep \(NHS\) -B2 | head -n 1 | sed "s/^.*\///" | awk '{ print $1 }')
     git config --global user.signingkey "$signing_key"
+    git config --global commit.gpgSign true
 
     key_id=$(gpg --list-public-keys | grep \(NHS\) -B 1 | head -n 1 | awk '{ print $1 }')
     public_key=$(gpg --export --armor "$key_id")

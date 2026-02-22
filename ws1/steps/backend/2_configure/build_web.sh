@@ -2,10 +2,10 @@
 
 switch_to "$REPO_DIR/nhsapp/web"
 
-npm install
-npm install -g auditjs
+# npm install
+# npm install -g auditjs
 switch_to "$REPO_DIR/nhsapp/web/lint"
-npm install
+# npm install
 
 switch_to "$REPO_DIR/nhsapp"
 
