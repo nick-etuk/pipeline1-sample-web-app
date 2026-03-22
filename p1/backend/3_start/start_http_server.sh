@@ -31,7 +31,7 @@ start_http_server() {
     # Restore the lines above when you have fixed that.
     
     if command -v node >/dev/null 2>&1; then
-        debug "Exiting Node version: $(node -v)"
+        debug "Using existing Node $(node -v)"
     else
         activate_required_node_version
     fi
@@ -42,7 +42,7 @@ start_http_server() {
     fi
 
     switch_to "$REPO_DIR/nhsapp/web"
-    npm install
+    # npm install
     # npm i --no-save --prefix ./node_modules/express path-to-regexp@0.1.7 #todo: remove this when develop is fixed
     # docker kill $(docker ps -q --filter 'publish=8089')
     stale_nginx_container=$(docker ps -q --filter 'publish=8089')
@@ -51,8 +51,7 @@ start_http_server() {
         docker kill "$stale_nginx_container"
     fi
     npm run docker-dev
-
-    switch_back
 }
 
 start_http_server
+switch_to "$REPO_DIR/nhsapp/web"

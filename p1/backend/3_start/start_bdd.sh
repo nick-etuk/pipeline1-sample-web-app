@@ -1,9 +1,14 @@
 #!/usr/bin/env bash
 
-start_backendworker() {
+start_bdd() {
     local login_env
 
-    debug "=>start_backendworker"
+    # Prompt for confirmation
+    read -rp "Remember to run 'make -C web build' before running BDD tests. Press Enter to continue..." response
+ 
+    debug "=>start_bdd"
+    switch_to "$REPO_DIR/nhsapp/web"
+    npm install
 
     login_env=$(get_config 'login_env')
     if [ -z "$login_env" ]; then
@@ -19,9 +24,9 @@ start_backendworker() {
         make login
     fi
     
-    WEB=host LOGINENV="$login_env" make run 
+    make run-localbdd
  
     switch_back
 }
 
-start_backendworker
+start_bdd

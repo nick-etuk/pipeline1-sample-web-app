@@ -66,7 +66,7 @@ start_service() {
         bdd)
             debug "=>start_service: bdd"
             switch_to "$REPO_DIR/nhsapp/web"
-            npm install
+            # npm install
             switch_to "$REPO_DIR/nhsapp"
             make run-localbdd
             ;;
