@@ -51,8 +51,7 @@ start_http_server() {
         docker kill "$stale_nginx_container"
     fi
     npm run docker-dev
-
-    switch_back
 }
 
 start_http_server
+switch_to "$REPO_DIR/nhsapp/web"

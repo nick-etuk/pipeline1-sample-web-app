@@ -3,8 +3,6 @@
 start_backendworker() {
     local login_env
 
-    debug "=>start_backendworker"
-
     login_env=$(get_config 'login_env')
     if [ -z "$login_env" ]; then
         warn "login_env not set, defaulting to 'ext'"
@@ -20,8 +18,7 @@ start_backendworker() {
     fi
     
     WEB=host LOGINENV="$login_env" make run 
- 
-    switch_back
 }
 
 start_backendworker
+switch_to "$REPO_DIR/nhsapp"
