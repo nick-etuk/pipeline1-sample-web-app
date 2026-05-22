@@ -1,0 +1,5 @@
+{
+  "checks": {
+    "unix": ["[[ ! $PATH == *Android/sdk/emulator* ]]"]
+  }
+}
