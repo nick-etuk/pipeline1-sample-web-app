@@ -1,0 +1,5 @@
+{
+  "checks": {
+    "unix": ["adb -s emulator-$ANDROID_EMULATOR_PORT shell cat /system/etc/hosts | grep -q web.local.bitraft.io"]
+  }
+}

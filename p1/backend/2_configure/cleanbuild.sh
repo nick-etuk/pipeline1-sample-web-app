@@ -1,5 +1,23 @@
 #!/usr/bin/env bash
 # shellcheck disable=SC2012
+remove_images_v1() {
+    info 'Removing docker images...'
+    if [ -n "$(docker images -aq)" ]; then
+        if ! docker rmi -f "$(docker images -aq)"; then
+            read -rp "Failed to remove docker images. Continue? (y/n) " choice
+            case "$choice" in
+                y|Y ) info "Continuing...";;
+                n|N ) error "Exiting..."; exit 1;;
+                * ) error "Invalid choice. Exiting..."; exit 1;;
+            esac
+        fi
+    fi
+}
+
+remove_images_v2() {
+    switch_to "$REPO_DIR/nhsapp"
+    make clean
+}
 
 cleanbuild() {
     local node_modules
@@ -21,17 +39,7 @@ cleanbuild() {
         esac
     fi
 
-    info 'Removing docker images...'
-    if [ -n "$(docker images -aq)" ]; then
-        if ! docker rmi -f "$(docker images -aq)"; then
-            read -rp "Failed to remove docker images. Continue? (y/n) " choice
-            case "$choice" in
-                y|Y ) info "Continuing...";;
-                n|N ) error "Exiting..."; exit 1;;
-                * ) error "Invalid choice. Exiting..."; exit 1;;
-            esac
-        fi
-    fi
+    remove_images_v2
 
     info 'Pruning docker system...'
     docker system prune -f 

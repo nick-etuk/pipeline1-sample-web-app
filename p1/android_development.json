@@ -16,7 +16,11 @@
     "start_docker",
     "build_backendworker",
     "start_backendworker ext",
+    "add_android_paths",
+    "create_android_emulator_device",
     "start_emulator android",
-    "open_android_studio"
+    "push_hosts_file",
+    "check_android_debug_store_file",
+    "open_ide android"
   ]
 }

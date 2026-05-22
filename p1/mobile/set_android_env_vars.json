@@ -1,0 +1,5 @@
+{
+  "checks": {
+    "unix": ["test -z \"${ANDROID_HOME+set}\""]
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "checks": {
+    "unix": ["emulator -list-avds | grep -q \"$ANDROID_DEFAULT_DEVICE\""],
+    "win": ["emulator -list-avds | Select-String \"$ANDROID_DEFAULT_DEVICE\""]
+  }
+}

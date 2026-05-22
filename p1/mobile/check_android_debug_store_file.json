@@ -1,0 +1,6 @@
+{
+  "checks": {
+    "unix": ["test -f \"$HOME/.nhsonline/secrets/android-debug-store-file\""],
+    "win": ["Test-Path -PathType Leaf \"$env:HOMEPATH\\.nhsonline\\secrets\\android-debug-store-file\""]
+  }
+}
