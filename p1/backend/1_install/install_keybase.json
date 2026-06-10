@@ -1,7 +1,7 @@
 {
   "dependencies": [],
   "checks": {
-    "macos": ["command -v keybase | grep -q keybase"],
-    "ubuntu": ["true"]
+    "unix": ["test -d $HOME/.nhsonline/secrets"],
+    "win": ["wsl -u $WSL_USER -- test -d $HOME/.nhsonline/secrets"]
   }
 }
