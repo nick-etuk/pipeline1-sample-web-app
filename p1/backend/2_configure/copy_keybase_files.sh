@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-mkdir -p "$HOME/.nhsonline/secrets"
-
 if [ -n "$ONEDRIVE_HOME" ]; then
     WORKING_DIR_ONEDRIVE="$ONEDRIVE_HOME/Documents/working"
     if [ -d "$WORKING_DIR_ONEDRIVE/kb" ]; then
@@ -17,4 +15,7 @@ if [ ! -d /mnt/c/provisioning/working/keybase ]; then
     warn "Keybase directory not found at /mnt/c/provisioning/working/keybase"
     return
 fi
+
 cp /mnt/c/provisioning/working/keybase/* "$HOME/.nhsonline/secrets"
+sleep 5
+

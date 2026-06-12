@@ -18,10 +18,9 @@ clone_application_repos() {
 
     mkdir -p "$REPO_DIR"
     switch_to "$REPO_DIR"
-    git clone https://nhsapp@dev.azure.com/nhsapp/NHS%20App/_git/nhsapp
-    git clone https://nhsapp@dev.azure.com/nhsapp/NHS%20App/_git/nhsapp-vue-component-library
-    git clone https://nhsapp@dev.azure.com/nhsapp/NHS%20App/_git/nhsapp-android
-    git clone https://nhsapp@dev.azure.com/nhsapp/NHS%20App/_git/nhsapp-ios
-    git clone https://nhsapp@dev.azure.com/nhsapp/NHS%20App/_git/nhsapp-utilities-api-adapter
+    git clone https://github.com/NHSDigital/nhsapp.git
+    git clone https://github.com/NHSDigital/nhsapp-vue-component-library.git
+    git clone https://github.com/NHSDigital/nhsapp-android.git
+    git clone https://github.com/NHSDigital/nhsapp-ios.git
 }
 clone_application_repos
