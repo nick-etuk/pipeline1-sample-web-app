@@ -1,6 +1,6 @@
 {
   "dependencies": ["install_docker"],
   "checks": {
-    "unix": ["docker ps -a | grep -iq CONTAINER"]
+    "unix": ["groups $P1_USER_UNIX | grep -iq docker"]
   }
 }

@@ -2,8 +2,7 @@
 # shellcheck disable=SC2016
 
 debug 'check failed: test -f ~/.nvm/nvm.sh'
-debug '*** running install_node.sh ***'
-return 0
+debug '*** installing nvm and node ***'
 
 add_nvm_to_profile() {
     local profile

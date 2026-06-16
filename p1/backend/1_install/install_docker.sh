@@ -5,6 +5,8 @@ install_docker_macos() {
 }
 
 install_docker_ubuntu() {
+    echo "=>install_docker_ubuntu"
+
     for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do 
         sudo apt-get remove $pkg; 
     done
@@ -26,5 +28,5 @@ install_docker_ubuntu() {
     sudo update-rc.d docker defaults
     sudo ln -s /usr/libexec/docker/cli-plugins/docker-compose /usr/bin/docker-compose
 }
-
+echo "=>install docker. MY_OS: $MY_OS"
 install_docker_"$MY_OS"

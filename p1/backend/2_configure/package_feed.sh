@@ -23,7 +23,7 @@ configure_package_feed() {
   buildscripts_dir="$REPO_DIR"/nhsapp/buildscripts
   fix_nuget_filename
 
-  email="$WINDOWS_USER@hscic.gov.uk"
+  email="$P1_USER_WIN@hscic.gov.uk"
   pat=$(cat "$WORKING_DIR/.pat")
 
   "$buildscripts_dir"/configure_package_feed.sh "$pat" "$email"

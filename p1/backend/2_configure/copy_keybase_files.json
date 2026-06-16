@@ -1,7 +1,7 @@
 {
   "dependencies": ["install_keybase"],
   "checks": {
-    "unix": ["test -d $HOME/.nhsonline"],
-    "win": ["wsl -u $WSL_USER -- test -d $HOME/.nhsonline"]
+    "unix": ["test -n \"$( ls -A \"$HOME/.nhsonline/secrets\" )\""],
+    "win": ["wsl -u $WSL_USER -- test -n \"$( wsl -u $WSL_USER -- ls -A \"$HOME/.nhsonline/secrets\" )\""]
   }
 }
