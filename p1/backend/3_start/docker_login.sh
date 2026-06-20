@@ -47,7 +47,7 @@ docker_login_acr_macos() {
 }
 
 info 'Logging into Azure...'
-az config set core.login_experience_v2=off
-az login
+# az config set core.login_experience_v2=off #  for azure devops only.
+az login --tenant 50f6071f-bbfe-401a-8803-673748e629e2  # for nhs.net account. Not necessary for hscic.gov.uk.
 
 docker_login_acr_"$MY_OS"
