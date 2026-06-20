@@ -1,5 +1,4 @@
 {
-  "runOnce": true,
   "dependencies": [
     "configure_backend",
     "install_build_tools",
@@ -9,6 +8,8 @@
     "install_azure_cli",
     "start_docker"
   ],
+  "runOnce": true,
+  "prompt": "Build web docker images?",
   "checks": {
     "dockerImages": ["nhsonline-web"]
   }
