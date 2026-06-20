@@ -1,6 +1,18 @@
 #!/usr/bin/env bash
 # shellcheck disable=SC2154,SC1091
 
+check_hosts_file() {
+    local bitraft_ip_address
+    bitraft_ip_address=$(ping -q -W1 -c1 web.local.bitraft.io | head -n1 | cut -d "(" -f2 | cut -d ")" -f1)
+    if [ "$bitraft_ip_address" != '127.0.0.1' ]; then
+        warn 'Hosts file is not configured correctly.'
+        warn 'On Windows or WSL, please add the contents of web_hosts.txt'
+        warn 'to C:\Windows\System32\drivers\etc\hosts and try again.'
+        warn 'On macOs or Linux, please run update_hosts_file.sh and try again.'
+        exit 1
+    fi
+}
+
 activate_required_node_version() {
     warn "Using nvm to activate Node $NODE_MAJOR_VERSION..."
     if [ ! -d "$HOME/.nvm" ]; then
@@ -53,5 +65,6 @@ start_http_server() {
     npm run docker-dev
 }
 
+check_hosts_file
 start_http_server
 switch_to "$REPO_DIR/nhsapp/web"

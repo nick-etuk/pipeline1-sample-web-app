@@ -1,5 +1,4 @@
 {
-  "runOnce": true,
   "dependencies": [
     "configure_backend",
     "install_build_tools",
@@ -9,6 +8,8 @@
     "install_azure_cli",
     "start_docker"
   ],
+  "runOnce": true,
+  "prompt": "Build backend worker?",
   "checks": {
     "dockerImages": [
       "nhsonline-web",
@@ -20,7 +21,6 @@
       "nhsonline-dotnetcore-build",
       "nhsonline-nodejs-build",
       "nhsonline-aspdotnetcore-runtime",
-      "nginx-unprivileged",
       "nhsonline-service-journey-dev-config",
       "nhsonline-backendservicejourneyrulesapi",
       "nhsonline-backendcidapi",
