@@ -26,11 +26,11 @@ get_personal_access_token() {
     done
     echo "$pat" > "$WORKING_DIR/.pat"
     
-    short_code=$(get_config 'short_code')
+    short_code=$(get_context 'short_code')
     [ -z "$short_code" ] && [ "$VM" = 'wsl' ] && short_code=$P1_USER_WIN
     while [ -z "$short_code" ]; do
         read -rp "Enter your HSCIC short code, for example niet2: " short_code
     done
-    set_config short_code "$short_code"
+    set_context short_code "$short_code"
 }
 get_personal_access_token
