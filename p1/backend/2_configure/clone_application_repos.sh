@@ -18,9 +18,9 @@ clone_application_repos() {
 
     mkdir -p "$REPO_DIR"
     switch_to "$REPO_DIR"
-    git clone https://github.com/NHSDigital/nhsapp.git
-    git clone https://github.com/NHSDigital/nhsapp-vue-component-library.git
-    git clone https://github.com/NHSDigital/nhsapp-android.git
-    git clone https://github.com/NHSDigital/nhsapp-ios.git
+    [ ! -d nhsapp ] && git clone https://github.com/NHSDigital/nhsapp.git
+    # [ ! -d nhsapp-vue-component-library ] && git clone https://github.com/NHSDigital/nhsapp-vue-component-library.git
+    [ ! -d nhsapp-android ] && git clone https://github.com/NHSDigital/nhsapp-android.git
+    [ ! -d nhsapp-ios ] && git clone https://github.com/NHSDigital/nhsapp-ios.git
 }
 clone_application_repos
