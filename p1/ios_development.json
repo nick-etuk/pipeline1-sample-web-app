@@ -8,7 +8,6 @@
   "exitTo": "../nhsapp-ios",
   "steps": [
     "setup_wsl",
-    "configure_git_client",
     "install_xcode",
     "install_emulator ios",
     "install_text_editor",

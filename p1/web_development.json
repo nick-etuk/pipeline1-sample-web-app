@@ -6,7 +6,6 @@
   "repo": "https://github.com/NHSDigital/nhsapp.git",
   "steps": [
     "setup_wsl",
-    "configure_git_client",
     "install_vscode",
     "install_text_editor",
     "install_node",

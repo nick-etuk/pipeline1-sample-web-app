@@ -7,7 +7,6 @@
   "exitTo": "../nhsapp-android",
   "steps": [
     "setup_wsl",
-    "configure_git_client",
     "install_text_editor",
     "install_backend",
     "install_android_studio",
