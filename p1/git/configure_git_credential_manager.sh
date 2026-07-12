@@ -4,8 +4,7 @@
 
 find_gcm() {
     local likely_paths
-    local grand_parent_dir
-    local path
+    local parent_dir
     local exe_path
     
     if [ -z "${GIT_PATH_WIN+set}" ]; then
@@ -14,34 +13,35 @@ find_gcm() {
     fi
     
     likely_paths=(
-        "$GIT_PATH_WIN\mingw64\bin\git-credential-manager.exe"
-        "$GIT_PATH_WIN\mingw64\libexec\git-core\git-credential-manager.exe"
-        "$GIT_PATH_WIN\mingw64\libexec\git-core\git-credential-manager-core.exe"
+        "$GIT_PATH_WIN/mingw64/bin/git-credential-manager.exe"
+        "$GIT_PATH_WIN/mingw64/libexec/git-core/git-credential-manager.exe"
+        "$GIT_PATH_WIN/mingw64/libexec/git-core/git-credential-manager-core.exe"
         )
 
-    for path in "${likely_paths[@]}"; do
-        if [ -f "$path" ]; then
-            info "GCM found in likely path $path"
-            GCM_PATH="$(dirname "$path")"
-            set_context 'gcm_path' "$GCM_PATH"
-            break
+    for exe_path in "${likely_paths[@]}"; do
+        if [ -f "$exe_path" ]; then
+            info "GCM found in likely path $exe_path"
+            set_context 'gcm_path' "$exe_path"
+            return
+        else
+            debug "GCM not found in likely path $exe_path"
         fi
     done
 
-    grand_parent_dir=$(dirname "$(dirname "$GIT_PATH_WIN")")
-    info "Searching for git-credential-manager.exe in $grand_parent_dir"
+    parent_dir=$(dirname "$GIT_PATH_WIN")
+    info "Searching for git-credential-manager.exe in $parent_dir"
 
-    exe_path=$(find "$grand_parent_dir" -name 'git-credential-manager.exe')
+    # exe_path=$(find "$parent_dir" -name 'git-credential-manager.exe')
     if [ -n "$exe_path" ]; then
-        GCM_PATH="$(dirname "$exe_path")"
-        set_context 'gcm_path' "$GCM_PATH"
+        set_context 'gcm_path' "$exe_path"
     fi
 }
 
 configure_git_credential_manager() {
     local gcm_path
+    local escaped_path
 
-    [ git config --global --list | grep -iq 'git-credential-manager' ] && return 0
+    # git config --global --list | grep -iq 'git-credential-manager' && return
     
     find_gcm
     gcm_path=$(get_context 'gcm_path')
@@ -50,7 +50,12 @@ configure_git_credential_manager() {
         return
     fi
     
-    git config --global credential.helper \""$gcm_path"\"
+    escaped_path=$(printf '%q' "$gcm_path")
+    info "Configuring git credential manager with path: $escaped_path"
+    # git config --global credential.helper \""$escaped_path"\"
+    git config --global credential.helper "$escaped_path"
+
+
     # git config --global credential.helper "/mnt/f/app/Git/mingw64/bin/git-credential-manager.exe"
     # git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/bin/git-credential-manager.exe"
     
