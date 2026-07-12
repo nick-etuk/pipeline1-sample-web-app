@@ -7,13 +7,11 @@
   "exitTo": "../nhsapp-android",
   "steps": [
     "setup_wsl",
-    "configure_git_client",
     "install_text_editor",
     "install_backend",
     "install_android_studio",
     "install_emulator android",
     "configure_backend",
-    "add_docker_group",
     "start_docker",
     "build_backendworker",
     "start_backendworker ext",

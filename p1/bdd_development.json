@@ -6,7 +6,6 @@
   "exitTo": "bddtests",
   "steps": [
     "setup_wsl",
-    "configure_git_client",
     "install_backend",
     "install_intellij",
     "install_text_editor",

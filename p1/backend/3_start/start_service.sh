@@ -18,20 +18,20 @@ start_service() {
 
     # if [ "$service_args_len" -gt 0 ]; then
     #     login_env=${service_args[0]}
-    #     default_login_env=$(get_config 'login_env')
+    #     default_login_env=$(get_context 'login_env')
     #     if [ "$default_login_env" != "$login_env" ]; then
     #         warn "Changing default LOGINENV from '$login_env' to '$default_login_env'"
-    #         set_config 'login_env' "$default_login_env"
+    #         set_context 'login_env' "$default_login_env"
     #     fi
     # else
-    #     login_env=$(get_config 'login_env')
+    #     login_env=$(get_context 'login_env')
     # fi
 
     service=$1
     debug "Starting service: $service"
 
     if  [ "$service" != 'http_server' ]; then
-        login_env=$(get_config 'login_env')
+        login_env=$(get_context 'login_env')
         if [ -z "$login_env" ]; then
             warn "login_env not set, defaulting to 'ext'"
             login_env='ext'

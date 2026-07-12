@@ -6,7 +6,6 @@
   "exitTo": "backendworker",
   "steps": [
     "setup_wsl",
-    "configure_git_client",
     "install_backend",
     "install_dotnet",
     "install_rider",

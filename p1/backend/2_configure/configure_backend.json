@@ -2,6 +2,8 @@
   "runOnce": true,
   "dependencies": ["install_backend"],
   "steps": [
+    "configure_git_client",
+    "configure_git_credential_manager",
     "clone_application_repos",
     "get_personal_access_token",
     "copy_keybase_files",

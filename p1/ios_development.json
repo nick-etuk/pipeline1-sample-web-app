@@ -8,13 +8,11 @@
   "exitTo": "../nhsapp-ios",
   "steps": [
     "setup_wsl",
-    "configure_git_client",
     "install_xcode",
     "install_emulator ios",
     "install_text_editor",
     "install_backend",
     "configure_backend",
-    "add_docker_group",
     "start_docker",
     "build_backendworker",
     "start_backendworker ext",

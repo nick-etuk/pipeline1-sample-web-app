@@ -3,7 +3,7 @@
 start_backendworker() {
     local login_env
 
-    login_env=$(get_config 'login_env')
+    login_env=$(get_context 'login_env')
     if [ -z "$login_env" ]; then
         warn "login_env not set, defaulting to 'ext'"
         login_env='ext'
