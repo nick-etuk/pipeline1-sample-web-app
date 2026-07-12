@@ -12,7 +12,6 @@
     "install_android_studio",
     "install_emulator android",
     "configure_backend",
-    "add_docker_group",
     "start_docker",
     "build_backendworker",
     "start_backendworker ext",

@@ -2,5 +2,6 @@
   "dependencies": ["install_docker"],
   "checks": {
     "unix": ["docker ps -a | grep -iq CONTAINER"]
-  }
+  },
+  "steps": ["add_docker_group"]
 }

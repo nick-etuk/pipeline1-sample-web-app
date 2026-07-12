@@ -13,7 +13,6 @@
     "install_text_editor",
     "install_backend",
     "configure_backend",
-    "add_docker_group",
     "start_docker",
     "build_backendworker",
     "start_backendworker ext",
