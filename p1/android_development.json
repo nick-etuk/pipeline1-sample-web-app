@@ -3,7 +3,6 @@
   "menu": "main",
   "sortOrder": 30,
   "title": "Android development",
-  "repo": "https://github.com/NHSDigital/nhsapp-android.git",
   "exitTo": "../nhsapp-android",
   "steps": [
     "setup_wsl",

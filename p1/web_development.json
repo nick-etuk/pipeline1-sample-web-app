@@ -3,7 +3,7 @@
   "menu": "main",
   "sortOrder": 10,
   "title": "Web development",
-  "repo": "https://github.com/NHSDigital/nhsapp.git",
+  "exitTo": "$REPO_DIR/nhsapp/web",
   "steps": [
     "setup_wsl",
     "install_vscode",

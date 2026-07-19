@@ -3,7 +3,7 @@
   "menu": "main",
   "sortOrder": 20,
   "title": "Dotnet development",
-  "exitTo": "backendworker",
+  "exitTo": "$REPO_DIR/nhsapp/backendworker",
   "steps": [
     "setup_wsl",
     "install_backend",

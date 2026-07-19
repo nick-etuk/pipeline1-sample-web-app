@@ -3,7 +3,7 @@
   "menu": "main",
   "sortOrder": 50,
   "title": "BDD development",
-  "exitTo": "bddtests",
+  "exitTo": "$REPO_DIR/nhsapp/bddtests",
   "steps": [
     "setup_wsl",
     "install_backend",
