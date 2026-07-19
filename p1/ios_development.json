@@ -4,7 +4,6 @@
   "sortOrder": 40,
   "title": "IOS development",
   "os": ["macos"],
-  "repo": "https://github.com/NHSDigital/nhsapp-ios.git",
   "exitTo": "../nhsapp-ios",
   "steps": [
     "setup_wsl",

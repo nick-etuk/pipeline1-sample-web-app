@@ -2,8 +2,11 @@
   "dependencies": ["copy_keybase_files"],
   "checks": {
     "unix": [
+      "test -f $HOME/.npmrc",
       "test -f $HOME/.nuget/NuGet/NuGet.Config",
-      "npm info vue | grep -q 'pkgs.dev.azure.com/nhsapp'"
+      "test -f $HOME/.m2/settings.xml",
+      "test -f $HOME/.nuget/NuGet/NuGet.Config",
+      "cd \"$REPO_DIR/nhsapp/web\" && npm info nhsapp-vue-component-library | grep -q 'pkgs.dev.azure.com/nhsapp'"
     ],
     "win": ["wsl -u $WSL_USER -- test -d $HOME/.nuget/NuGet/NuGet.Config"]
   }
