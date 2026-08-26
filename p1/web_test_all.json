@@ -1,0 +1,13 @@
+{
+  "id": "webtest",
+  "menu": "main",
+  "sortOrder": 50,
+  "title": "Web test all",
+  "exitTo": "$REPO_DIR/nhsapp/web",
+  "steps": [
+    "jest_integration_tests",
+    "jest_unit_tests",
+    "playwright_tests",
+    "lint"
+  ]
+}
