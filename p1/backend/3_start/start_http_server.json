@@ -4,7 +4,7 @@
   "timeout": 300,
   "checks": {
     "unix": [
-      "curl -s http://web.local.bitraft.io:3000 | grep -iq 'class=\"nhsuk-logo\"'"
+      "curl -s http://web.local.bitraft.io:3000 | grep -iq 'NHS App'"
     ]
   }
 }

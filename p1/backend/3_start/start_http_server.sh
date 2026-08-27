@@ -13,26 +13,6 @@ check_hosts_file() {
     fi
 }
 
-activate_required_node_version() {
-    warn "Using nvm to activate Node $NODE_MAJOR_VERSION..."
-    if [ ! -d "$HOME/.nvm" ]; then
-        error "NVM not found. Please install it and try again."
-        return
-    fi
-
-    export NVM_DIR="$HOME"/.nvm
-    if [ -s "$NVM_DIR"/nvm.sh ]; then
-        source "$NVM_DIR"/nvm.sh
-        nvm use "$NODE_MAJOR_VERSION"
-    else
-        error "nvm.sh not found in $NVM_DIR"
-    fi
-    node_major_ver=$(node -v | cut -d. -f1 | tr -d v)
-    if [ "$node_major_ver" -lt "$NODE_MAJOR_VERSION" ]; then
-        error "Could not activate Node $NODE_MAJOR_VERSION"
-    fi
-}
-
 start_http_server() {
     local stale_nginx_container
     local node_major_ver
@@ -45,12 +25,12 @@ start_http_server() {
     if command -v node >/dev/null 2>&1; then
         debug "Using existing Node $(node -v)"
     else
-        activate_required_node_version
+        activate_node
     fi
 
     node_major_ver=$(node -v | cut -d. -f1 | tr -d v)
     if [ "$node_major_ver" -lt "$NODE_MAJOR_VERSION" ]; then
-        activate_required_node_version
+        activate_node
     fi
 
     switch_to "$REPO_DIR/nhsapp/web"
@@ -67,4 +47,3 @@ start_http_server() {
 
 check_hosts_file
 start_http_server
-switch_to "$REPO_DIR/nhsapp/web"
