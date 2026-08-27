@@ -11,4 +11,4 @@ install_dotnet_macos() {
     # export PATH="$DOTNET_INSTALL_DIR:$PATH"
 }
 
-install_dotnet_$MY_OS
+"install_dotnet_$MY_OS"
