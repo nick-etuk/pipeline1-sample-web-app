@@ -16,7 +16,7 @@
     "start_backendworker ext",
     "add_android_paths",
     "create_android_emulator_device",
-    "start_emulator android",
+    "start_emulator android writable",
     "push_hosts_file",
     "check_android_debug_store_file",
     "open_ide android"
