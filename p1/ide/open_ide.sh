@@ -2,31 +2,39 @@
 
 open_ide() {
     local ide
-    local repo_dir_win
+    local location_win
+
     ide="$1_$MY_OS"
+    location="$2"
 
     case "$ide" in
-        android_macos)
-            open -a "/Applications/Android Studio.app" "$REPO_DIR/nhsapp-android"
+        android_studio_macos)
+            open -a "/Applications/Android Studio.app" "$location"
             ;;
-        android_ubuntu)
-            repo_dir_win=$(wslpath "$REPO_DIR")
-            studio64.exe "$repo_dir_win/nhsapp-android"
+        android_studio_ubuntu)
+            location_win=$(wslpath "$location")
+            studio64.exe "$location_win"
             ;;
-        bdd_macos)
-            open -na "IntelliJ IDEA CE.app" "$REPO_DIR/nhsapp/bddtests"
+        intellij_macos)
+            open -na "IntelliJ IDEA CE.app" "$location"
             ;;
-        ios_macos)
-            xed "$REPO_DIR/nhsapp-ios"
+        intellij_ubuntu)
+            idea64.exe "$location"
+            ;;
+        xcode_macos)
+            xed "$location"
             ;;        
-        web_macos )
-            open -na "Visual Studio Code.app" "$REPO_DIR/nhsapp/web"
+        vscode_macos )
+            open -na "Visual Studio Code.app" "$location"
             ;;
-        web_ubuntu)
-            code "$REPO_DIR/nhsapp/web"
+        vscode_win)
+            code "$location"
             ;;
-        xit_macos)
-            rider "$REPO_DIR/nhsapp/xamarinintegrationtests/NHSOnline.IntegrationTests.sln"
+        vscode_ubuntu)
+            code "$location"
+            ;;
+        rider_macos)
+            rider "$location"
             ;;
         *)
             error "Unknown IDE: $ide"

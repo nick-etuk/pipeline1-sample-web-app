@@ -1,17 +1,19 @@
-function Open-IDE {
+function open_ide {
     Param (
         [Parameter(Position=0)]
-        $Stage
+        $IDE,
+        [Parameter(Position=1)]
+        $location
     )
-    switch ($Stage) {
-        android { 
-            Start-Process studio64.exe "$REPO_DIR\nhsapp-android"
+    switch ($IDE) {
+        android_studio { 
+            Start-Process studio64.exe "$location"
         }
-        bdd { 
-            Start-Process idea64.exe "$REPO_DIR\nhsapp\bddtests"
+        intellij { 
+            Start-Process idea64.exe "$location"
         }
-        web { 
-            Start-Process code.exe "//wsl.localhost/Ubuntu/home/$WSL_USER/repos/nhsapp/web"
+        vscode { 
+            Start-Process code.exe "$location"
         }
     }
 }
