@@ -1,5 +1,0 @@
-{
-  "checks": {
-    "macos": ["ps aux | grep -v grep | grep -iq 'IntelliJ IDEA'"]
-  }
-}
