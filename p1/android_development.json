@@ -19,6 +19,6 @@
     "start_emulator android writable",
     "push_hosts_file",
     "check_android_debug_store_file",
-    "open_ide android"
+    "open_ide android_studio"
   ]
 }
