@@ -1,6 +1,10 @@
 {
   "isElevated": true,
   "checks": {
-    "unix": ["command -v dotnet"]
+    "unix": ["command -v dotnet"],
+    "win": [
+      "get-command dotnet",
+      "dotnet --version | select-string -pattern $DOTNET_MAJOR_VERSION"
+    ]
   }
 }
