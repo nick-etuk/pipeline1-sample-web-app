@@ -12,7 +12,8 @@ install_gpg_source_v1() {
     # cd "$tmp_dir" || exit 1
     # echo "Working in temporary directory: $tmp_dir"
 
-    # script_dir=$(dirname "$0")
+    # script_dir=$(dirname "$(realpath "$0")")
+
     # source "$script_dir/install_libksba.sh"
 
     sudo apt-get install -y build-essential bzip2 libassuan-dev libgcrypt20-dev libgpg-error-dev libksba-dev libnpth0-dev
