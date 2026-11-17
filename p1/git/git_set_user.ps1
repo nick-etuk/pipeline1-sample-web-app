@@ -1,14 +1,23 @@
-function switch_git_user {
+param (
+    [Parameter(Position=0)]
+    [string]$user_type
+)
+
+function set_git_user($user_type) {
     # Don't do this. Set the git user email and signing key locally for each repo instead.
     $current_email = (git config user.email)
-    switch($current_email) {
-        nick.etuk2@nhs.net {
-           $email = 'nick_etuk@hotmail.com'
-           $public_key_file = "$HOME\.ssh\id_ed25519_nick-etuk.pub"
+    switch($user_type) {
+        'nhs' {
+           $email = 'nick_etuk2@nhs.net'
+           $public_key_file = "$HOME\.ssh\id_ed25519.pub"
         }
-        nick_etuk@hotmail.com {
-            $email = 'nick.etuk2@nhs.net'
-            $public_key_file = "$HOME\.ssh\id_ed25519.pub"
+        'hotmail' {
+            $email = 'nick_etuk@hotmail.com'
+            $public_key_file = "$HOME\.ssh\id_ed25519_nick-etuk.pub"
+        }
+        'yahoo' {
+            $email = 'netuk3@yahoo.co.uk'
+            $public_key_file = "$HOME\.ssh\id_ed25519_nick-etuk.pub"
         }
         default {
             WriteWarn "Invalid git email: $current_email"
@@ -16,8 +25,11 @@ function switch_git_user {
         }
     }
 
-    git config user.email nick_etuk2@hotmail.com
-    git config user.signingkey "$HOME\.ssh\id_ed25519_nick-etuk.pub"
+    git config user.email $email
+    git config user.signingkey $public_key_file
+}
+
+function gobal_ssh_config {
     git config --global gpg.format ssh
     # git config --global core.sshCommand "'C:\Windows\System32\OpenSSH\ssh.exe'"
     git config --global core.sshCommand "`'$((Get-Command ssh.exe).Source)`'"
@@ -29,9 +41,6 @@ function switch_git_user {
 
     git config --global gpg.ssh.allowedSignersFile $HOME/.ssh/allowed_signers
 
-    $key = (Get-Content $HOME/.ssh/id_ed25519.pub)
-    $signer = "$email $key"
-    echo $signer | Out-File $HOME/.ssh/allowed_signers -Append
 }
 
-switch_git_user
+set_git_user $user_type
