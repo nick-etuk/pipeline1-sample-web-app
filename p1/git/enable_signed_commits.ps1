@@ -1,15 +1,19 @@
-function enable_signed_commits {
+function enable_signed_commits_ssh {
     # Can this just be the filename instead of the file content?
-    git config --global user.signingkey (Get-Content $HOME\.ssh\id_ed25519.pub)
+    # git config --global user.email nick.etuk2@nhs.net
+    # git config --global user.signingkey (Get-Content $HOME\.ssh\id_ed25519.pub)
+    # git config --global user.signingkey "$HOME\.ssh\id_ed25519.pub"
+    git config --global user.email nick_etuk2@hotmail.com
+    git config --global user.signingkey "$HOME\.ssh\id_ed25519_nick-etuk.pub"
     git config --global gpg.format ssh
+    # git config --global core.sshCommand "'C:\Windows\System32\OpenSSH\ssh.exe'"
+    git config --global core.sshCommand "`'$((Get-Command ssh.exe).Source)`'"
     git config --global gpg.ssh.program (Get-Command ssh-keygen.exe).Source
-    git config --global core.sshCommand (Get-Command ssh.exe).Source
 
     git config --global commit.gpgsign true
     git config --global tag.gpgsign true
 
 
-    git config --global user.email nick.etuk2@nhs.net
     git config --global gpg.ssh.allowedSignersFile $HOME/.ssh/allowed_signers
 
     $email = (git config user.email)
@@ -17,3 +21,5 @@ function enable_signed_commits {
     $signer = "$email $key"
     echo $signer | Out-File $HOME/.ssh/allowed_signers -Append
 }
+
+enable_signed_commits_ssh

@@ -1,5 +1,5 @@
 {
-  "id": "webtest",
+  "id": "webjest",
   "menu": "main",
   "sortOrder": 50,
   "title": "Web test all",
@@ -7,7 +7,6 @@
   "steps": [
     "jest_integration_tests",
     "jest_unit_tests",
-    "playwright_tests",
-    "lint"
+    "lint_web"
   ]
 }
