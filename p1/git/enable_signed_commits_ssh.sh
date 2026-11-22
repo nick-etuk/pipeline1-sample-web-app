@@ -23,7 +23,7 @@ enable_signed_commits_ssh() {
     git config --global commit.gpgsign true
     git config --global tag.gpgsign true
 
-    touch ~/.ssh/allowed_signers
+    touch "$HOME/.ssh/allowed_signers"
     git config --global gpg.ssh.allowedSignersFile "$HOME/.ssh/allowed_signers"
 
     signing_key=$(ssh-add -L | grep "ssh-ed25519" | awk '{ print $2 }')

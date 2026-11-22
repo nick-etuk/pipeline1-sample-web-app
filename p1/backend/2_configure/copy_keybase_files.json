@@ -1,5 +1,5 @@
 {
-  "dependencies": ["install_keybase"],
+  "dependencies": [],
   "checks": {
     "unix": ["test -n \"$( ls -A \"$HOME/.nhsonline/secrets\" )\""],
     "win": ["wsl -u $WSL_USER -- test -n \"$( wsl -u $WSL_USER -- ls -A \"$HOME/.nhsonline/secrets\" )\""]

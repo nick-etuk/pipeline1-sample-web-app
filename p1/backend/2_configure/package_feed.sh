@@ -78,3 +78,4 @@ configure_package_feed() {
 }
 
 configure_package_feed
+check_nuget_config # todo: add this to step exit checks

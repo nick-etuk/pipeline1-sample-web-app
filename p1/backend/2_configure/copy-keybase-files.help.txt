@@ -1,0 +1,14 @@
+# 1. On WSL, copy from windows working dir if available
+# 1. On macos or Ubuntu, copy from working dir if available
+# (on Windows, this will be handled by the Powershell version of this script.)
+# 2. On WSL, copy from WSL working dir if available
+# 3. Copy from OneDrive if available
+# 4. Copy from mounted keybase volume if available
+# 5. Raise error if none of the above are available
+
+You should have a Keybase drive mounted in your file system,
+and a folder in it called team\nhsonline\development_secrets.
+
+1. Start the keybase application
+2. Login 
+3. Click on Files, Explorer Integration
